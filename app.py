@@ -13,7 +13,7 @@ PROJECTS = [
     'id': 2,
     'language': 'Java',
     'description': 'Android & Smartphone Application Development',
-    'topic': '공공데이터포털(Open API), GPS'
+    'topic': '공공데이터포털(Open API), GPS, Google API'
   },
   {
     'id': 3,
