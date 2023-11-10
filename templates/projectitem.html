@@ -1,0 +1,20 @@
+<div class="border-bottom row" style="margin-bottom:16px; padding-bottom:4px">
+  <div class="col-10">
+    <h4 style="color:rgb(120, 120, 120); margin-bottom:4px">{{project['language']}}</h4>
+    
+    <div>
+      <b>Project</b>: {{project['description']}}
+    </div>
+    
+    {% if 'topic' in project %}
+      <div>
+        <b>Topic</b>: {{project['topic']}}
+      </div>
+    {% endif %}
+    
+  </div>
+
+  <div class="col-2">
+    <button type="button" class="btn btn-outline-primary">Request</button>
+  </div>
+</div>
