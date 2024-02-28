@@ -1,32 +1,41 @@
 from flask import Flask, render_template, jsonify
 
-app = Flask(__name__)
+app = Flask(__name__) # python app.py -> __name__ = __main__
 
-PROJECTS = [{
+PROJECTS = [
+  {
     'id': 1,
     'language': 'C/C++',
     'description': 'Algorithm & Programming',
     'topic': 'Searching, Sorting, Data Structure'
-}, {
+  }, 
+  {
     'id': 2,
     'language': 'C#',
     'description': 'Unity & Android Application Development',
     'topic': '공공데이터포털(Open API), GPS, Google API'
-}, {
+  }, 
+  {
     'id': 3,
-    'language': 'Python',
-    'description': 'Machine Learning & Data Science',
-}, {
+    'language': 'Java',
+    'description': 'Chat app & Android Application Development',
+  }, 
+  {
     'id': 4,
     'language': 'C#',
-    'description': 'Unity & Game Development',
+    'description': 'Healthcare Application Development',
     'topic': 'Muscle Synergy, EMG Data Report'
-}]
+  },
+  {
+    'id' : 5,
+    'language': 'Python'
+  }
+]
 
 
-@app.route("/")
+@app.route("/") # route (url)
 def hello_world():
-  return render_template('home.html', projects=PROJECTS, Author_name="DW")
+  return render_template('home.html', projects=PROJECTS, author_name="다원")
 
 
 @app.route("/api/projects")
