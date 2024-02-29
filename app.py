@@ -33,5 +33,10 @@ def apply_to_project(id):
                          application=data,
                          project = project_db)
 
+@app.route("/api/project/<id>")
+def show_project_json(id):
+  project_db = load_project_from_db(id)
+  return jsonify(project_db)
+  
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
