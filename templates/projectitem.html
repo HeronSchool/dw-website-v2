@@ -1,18 +1,18 @@
 <div class="border-bottom row" style="margin-bottom:16px; padding-bottom:4px">
   <div class="col-10">
     <h4 style="color:rgb(120, 120, 120); margin-bottom:4px">
-      {{project['language']}}</h4>
+      {{project['topic']}}</h4>
 
-    {%if 'description' in project %}
+    {%if 'descriptions' in project %}
     <div>
-      <b>Project</b>: {{project['description']}}
+      <b>Project</b>: {{project['descriptions']}}
     </div>
     {% endif %}
-    
-    {% if 'topic' in project %}
-      <div>
-        <b>Topic</b>: {{project['topic']}}
-      </div>
+
+    {% if 'languages' in project %}
+    <div>
+      <b>Languages</b>: {{project['languages']}}
+    </div>
     {% endif %}
     
   </div>
