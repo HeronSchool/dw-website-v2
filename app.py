@@ -1,50 +1,25 @@
 from flask import Flask, render_template, jsonify
 from sqlalchemy import text
-from database import engine, load_projects_from_db
+from database import engine, load_projects_from_db, load_project_from_db
 
 app = Flask(__name__) # python app.py -> __name__ = __main__
-
-PROJECTS = [
-  {
-    'id': 2,
-    'language': 'C#',
-    'description': 'Unity & OpenAPI - Android Application Development',
-    'topic': '공공데이터포털(Open API), Cesium for Unity'
-  },
-  {
-    'id': 3,
-    'language': 'Java',
-    'description': 'Chat app - Android Application Development',
-  },
-  {
-    'id': 4,
-    'language': 'C#',
-    'description': 'Healthcare Application Development',
-    'topic': 'Muscle Synergy, EMG Data Report'
-  },
-  {
-    'id' : 5,
-    'language': 'Python',
-    'description': 'Website Development'
-  },
-  {
-    'id' : 6,
-    'language' : 'Java',
-    'description' : 'AI & OCR Project'
-  }
-]
-
 
 @app.route("/") # route (url)
 def hello_world():
   projects_db = load_projects_from_db()
-  return render_template('home.html', projects=projects_db, author_name="다원")
-
+  return render_template('home.html', projects=projects_db)
 
 @app.route("/api/projects")
 def list_projects():
   return jsonify(load_projects_from_db())
 
+@app.route("/project/<id>")
+def show_project(id):
+  project_db = load_project_from_db(id)
 
+  if not project_db:
+    return "Not Found", 404
+  return render_template('project.html', project=project_db)
+  
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

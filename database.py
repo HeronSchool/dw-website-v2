@@ -15,7 +15,7 @@ engine = create_engine(
 # return data as dictionary
 def load_projects_from_db():
   with engine.connect() as connection:
-    result = connection.execute(text("select * from projects"))
+    result = connection.execute(text("SELECT * FROM projects"))
 
     projects_dict = []
     for row in result.all():
@@ -23,6 +23,17 @@ def load_projects_from_db():
 
     return projects_dict
 
+def load_project_from_db(id):
+  with engine.connect() as connection:
+    result = connection.execute(
+      text("SELECT * FROM projects WHERE id = :val"), {"val" : id}
+    )
+
+    rows = result.all()
+    if len(rows) == 0:
+      return None
+    else:
+      return rows[0]._asdict()
     
 # with engine.connect() as connection:
 #   result = connection.execute(text("select * from projects"))
