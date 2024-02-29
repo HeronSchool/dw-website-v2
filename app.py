@@ -4,22 +4,16 @@ app = Flask(__name__) # python app.py -> __name__ = __main__
 
 PROJECTS = [
   {
-    'id': 1,
-    'language': 'C/C++',
-    'description': 'Algorithm & Programming',
-    'topic': 'Searching, Sorting, Data Structure'
-  }, 
-  {
     'id': 2,
     'language': 'C#',
-    'description': 'Unity & Android Application Development',
-    'topic': '공공데이터포털(Open API), GPS, Google API'
-  }, 
+    'description': 'Unity & OpenAPI - Android Application Development',
+    'topic': '공공데이터포털(Open API), Cesium for Unity'
+  },
   {
     'id': 3,
     'language': 'Java',
-    'description': 'Chat app & Android Application Development',
-  }, 
+    'description': 'Chat app - Android Application Development',
+  },
   {
     'id': 4,
     'language': 'C#',
@@ -28,7 +22,13 @@ PROJECTS = [
   },
   {
     'id' : 5,
-    'language': 'Python'
+    'language': 'Python',
+    'description': 'Website Development'
+  },
+  {
+    'id' : 6,
+    'language' : 'Java',
+    'description' : 'AI & OCR Project'
   }
 ]
 
