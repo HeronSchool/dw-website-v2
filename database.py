@@ -1,5 +1,6 @@
-from sqlalchemy import create_engine, text
 import os
+
+from sqlalchemy import create_engine, text
 
 db_connection_string = os.environ['DB_CONNECTION_STRING']
 
@@ -34,6 +35,18 @@ def load_project_from_db(id):
       return None
     else:
       return rows[0]._asdict()
+
+def add_application_to_db(project_id, data):
+  with engine.connect() as connection:
+    query = text("INSERT INTO applications (project_id, full_name, email, requirements) VALUES (:project_id, :full_name, :email, :requirements)")
+
+    connection.execute(query, 
+                       {
+                         "project_id" : project_id, 
+                         "full_name" : data['full_name'],
+                         "email" : data['email'], 
+                         "requirements" : data['requirements']
+                       })
     
 # with engine.connect() as connection:
 #   result = connection.execute(text("select * from projects"))

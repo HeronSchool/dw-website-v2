@@ -1,0 +1,21 @@
+<div>Application Form</div>
+<form action="/project/{{project.id}}/apply" method="post">
+
+  <div class="mb-2">
+    <label>Full Name</label><br>
+    <input type="text" name="full_name" placeholder="First Name, Last Name">
+  </div>
+  
+  <div class="mb-2">
+    <label>Email</label><br>
+    <input type="text" name="email" placeholder="email address">
+  </div>
+
+  <div class="mb-2">
+    <label>Requirements</label><br>
+    <textarea name="requirements"></textarea>
+  </div>
+
+  <input type="submit">
+  
+</form>
